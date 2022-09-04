@@ -4,19 +4,14 @@
   <TITLE>Digital Therapist</TITLE>
   <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elizabot.js"></SCRIPT>
   <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elizadata.js"></SCRIPT>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
 
     var eliza = new ElizaBot();
     var elizaLines = new Array();
-
-    window.onload = function () {
-      document.getElementById("input").focus();
-      document.getElementById("input").prompt();
-      document.getElementById("text").style.height = window.visualViewport.height;
-    }
 
     function elizaReset() {
       eliza.reset();
@@ -48,6 +43,9 @@
       }
       f.e_input.value = '';
       f.e_input.focus();
+
+      var textarea = document.getElementById('textarea');
+      textarea.scrollTop = textarea.scrollHeight;
     }
 
 //-->
@@ -57,7 +55,7 @@
 <BODY onload="window.setTimeout('elizaReset()',100)">
 
   <FORM NAME="e_form" onsubmit="elizaStep();return false">
-    <TEXTAREA id="text" readonly="true" NAME="e_display"></TEXTAREA>
+    <TEXTAREA id="textarea" readonly="true" NAME="e_display"></TEXTAREA>
     <INPUT id="input" placeholder="Enter responses here" TYPE="text" NAME="e_input">
     </TR>
   </FORM>
@@ -72,13 +70,13 @@
   textarea {
     background-color: #fefae0;
     color: #283618;
-    width: 100vw;
-    height: calc(100vh - 40px);
+    width: 100%;
+    height: 100px;
   }
 
   input {
-    width: 100vw;
-    height: 40px;
+    background-color: whitesmoke;
+    width: 100%;
   }
 </style>
 
