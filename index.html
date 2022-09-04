@@ -14,6 +14,8 @@
 
     window.onload = function () {
       document.getElementById("input").focus();
+      document.getElementById("input").prompt();
+      document.getElementById("text").style.height = window.visualViewport.height;
     }
 
     function elizaReset() {
@@ -55,7 +57,7 @@
 <BODY onload="window.setTimeout('elizaReset()',100)">
 
   <FORM NAME="e_form" onsubmit="elizaStep();return false">
-    <TEXTAREA readonly="true" NAME="e_display"></TEXTAREA>
+    <TEXTAREA id="text" readonly="true" NAME="e_display"></TEXTAREA>
     <INPUT id="input" placeholder="Enter responses here" TYPE="text" NAME="e_input">
     </TR>
   </FORM>
